@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150517102B00B7440001C31B /* ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505170F2B00B7440001C31B /* ToDoApp.swift */; };
+		150517102B00B7440001C31B /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505170F2B00B7440001C31B /* ToDoListApp.swift */; };
 		150517122B00B7440001C31B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150517112B00B7440001C31B /* ContentView.swift */; };
 		150517142B00B7450001C31B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150517132B00B7450001C31B /* Assets.xcassets */; };
 		150517172B00B7450001C31B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150517162B00B7450001C31B /* Preview Assets.xcassets */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1505170C2B00B7440001C31B /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1505170F2B00B7440001C31B /* ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoApp.swift; sourceTree = "<group>"; };
+		1505170C2B00B7440001C31B /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1505170F2B00B7440001C31B /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		150517112B00B7440001C31B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		150517132B00B7450001C31B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		150517162B00B7450001C31B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		1505170D2B00B7440001C31B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1505170C2B00B7440001C31B /* ToDo.app */,
+				1505170C2B00B7440001C31B /* ToDoList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,11 +59,11 @@
 		1505170E2B00B7440001C31B /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				1505170F2B00B7440001C31B /* ToDoApp.swift */,
-				150517112B00B7440001C31B /* ContentView.swift */,
 				150517232B00C8910001C31B /* AddToDo.swift */,
-				150517212B00C5740001C31B /* ToDoDetails.swift */,
+				150517112B00B7440001C31B /* ContentView.swift */,
 				1505171D2B00B7570001C31B /* loadJson.swift */,
+				150517212B00C5740001C31B /* ToDoDetails.swift */,
+				1505170F2B00B7440001C31B /* ToDoListApp.swift */,
 				1505171F2B00B7610001C31B /* Data.json */,
 				150517132B00B7450001C31B /* Assets.xcassets */,
 				150517152B00B7450001C31B /* Preview Content */,
@@ -82,9 +82,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1505170B2B00B7440001C31B /* ToDo */ = {
+		1505170B2B00B7440001C31B /* ToDoList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1505171A2B00B7450001C31B /* Build configuration list for PBXNativeTarget "ToDo" */;
+			buildConfigurationList = 1505171A2B00B7450001C31B /* Build configuration list for PBXNativeTarget "ToDoList" */;
 			buildPhases = (
 				150517082B00B7440001C31B /* Sources */,
 				150517092B00B7440001C31B /* Frameworks */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = ToDo;
+			name = ToDoList;
 			productName = ToDo;
-			productReference = 1505170C2B00B7440001C31B /* ToDo.app */;
+			productReference = 1505170C2B00B7440001C31B /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 150517072B00B7440001C31B /* Build configuration list for PBXProject "ToDo" */;
+			buildConfigurationList = 150517072B00B7440001C31B /* Build configuration list for PBXProject "ToDoList" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,7 +127,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1505170B2B00B7440001C31B /* ToDo */,
+				1505170B2B00B7440001C31B /* ToDoList */,
 			);
 		};
 /* End PBXProject section */
@@ -153,7 +153,7 @@
 				150517222B00C5740001C31B /* ToDoDetails.swift in Sources */,
 				150517122B00B7440001C31B /* ContentView.swift in Sources */,
 				1505171E2B00B7570001C31B /* loadJson.swift in Sources */,
-				150517102B00B7440001C31B /* ToDoApp.swift in Sources */,
+				150517102B00B7440001C31B /* ToDoListApp.swift in Sources */,
 				150517242B00C8910001C31B /* AddToDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		150517072B00B7440001C31B /* Build configuration list for PBXProject "ToDo" */ = {
+		150517072B00B7440001C31B /* Build configuration list for PBXProject "ToDoList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				150517182B00B7450001C31B /* Debug */,
@@ -352,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1505171A2B00B7450001C31B /* Build configuration list for PBXNativeTarget "ToDo" */ = {
+		1505171A2B00B7450001C31B /* Build configuration list for PBXNativeTarget "ToDoList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1505171B2B00B7450001C31B /* Debug */,
