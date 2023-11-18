@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ToDo: Codable, Identifiable {
+// Data.json 파일을 읽어오기만 하므로 Decodable만 사용.
+struct ToDo: Decodable {
     var id: Int
     var title: String
     var description: String
@@ -17,42 +18,41 @@ struct ToDo: Codable, Identifiable {
 var toDoListData: [ToDo] = loadJson("Data.json")
 
 class ToDoList: ObservableObject {
-    @Published var ToDoLists: [ToDo]
+    @Published var toDoLists: [ToDo]
 
-    init(ToDoLists: [ToDo]) {
-        self.ToDoLists = ToDoLists
+    init(toDoLists: [ToDo]) {
+        self.toDoLists = toDoLists
     }
 }
 
 struct ContentView: View {
-    @StateObject var toDoList: ToDoList = ToDoList(ToDoLists: toDoListData)
-    @State private var stackPath = NavigationPath()
+    @StateObject var toDoList: ToDoList = ToDoList(toDoLists: toDoListData)
 
     var body: some View {
-        NavigationStack(path: $stackPath) {
+        NavigationStack() {
             List {
-                ForEach (0..<toDoList.ToDoLists.count, id: \.self) { i in
+                ForEach (0..<toDoList.toDoLists.count, id: \.self) { i in
                     Button(action: {
-                        toDoList.ToDoLists[i].completed.toggle()
+                        toDoList.toDoLists[i].completed.toggle()
                     }) {
-                        ToDoListView(toDo: $toDoList.ToDoLists[i])
+                        ToDoListView(toDo: $toDoList.toDoLists[i])
                     }
                 }
                 .onDelete(perform: deleteTask)
             }
             .padding(.bottom)
             .navigationDestination(for: String.self) { _ in
-                AddToDo(toDoList: self.toDoList, path: $stackPath)
+                AddToDo(toDoList: self.toDoList)
             }
             .navigationTitle("To Do List")
             .toolbar {
-                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                    NavigationLink(destination: AddToDo(toDoList: self.toDoList, path: $stackPath)) {
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(destination: AddToDo(toDoList: self.toDoList)) {
                         Text("Add")
                     }
                 }
-
-                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing ) {
                     EditButton()
                 }
             }
@@ -60,37 +60,9 @@ struct ContentView: View {
     }
 
     func deleteTask(at offsets: IndexSet) {
-        toDoList.ToDoLists.remove(atOffsets: offsets)
+        toDoList.toDoLists.remove(atOffsets: offsets)
     }
 }
-
-
-struct ToDoListView: View {
-    @Binding var toDo: ToDo
-
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(toDo.title)
-                    .font(.headline)
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color.black)
-                Text(toDo.description)
-                    .font(.subheadline)
-            }
-            Spacer()
-
-            Button(action: {
-                toDo.completed.toggle()
-            }) {
-                Image(systemName: toDo.completed ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(toDo.completed ? .green : .gray)
-                    .imageScale(.large)
-            }
-        }
-    }
-}
-
 
 #Preview {
     ContentView()

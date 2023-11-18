@@ -25,6 +25,5 @@ func loadJson<T: Decodable>(_ filename: String) -> T {
         return try JSONDecoder().decode(T.self, from: data)
     } catch  {
         fatalError("Unable to parse \(filename): \(error)")
-
     }
 }
